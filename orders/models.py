@@ -1,12 +1,12 @@
 from django.db import models
 
-class Products(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.FloatField()
-    stock = models.BooleanField(default=True)
+class Order(models.Model):
+    CHOICES = (
+        ('Cash', 'Cash'),
+        ('Card', 'Card'),
+    )
 
-    def __str__(self):
-        return self.name
-
-class Category(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    client = models.CharField(max_length=100)
+    product = models.CharField(max_length=100)
+    creation_time = models.DateTimeField(auto_now_add=True)
+    payment_method = models.CharField(choices=CHOICES, max_length=4)

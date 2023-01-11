@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Ordenes
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Ordenes</h1>
+    {% for order in orders %}
+
+    <div class="card" style="width: 18rem;">
+      <img
+        src="https://jumboargentina.vtexassets.com/arquivos/ids/708227-800-600?v=637921137647470000&width=800&height=600&aspect=true"
+        class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">El cliente: {{order.client}}</h5>
+        <p class="card-text">Compro el producto {{order.product}} el {{order.creation_time}}</p>
+        <p>El pago se realizó con {{order.payment_method}}</p>
+        <a href="#" class="btn btn-primary">Ver detalle</a>
+      </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
+
