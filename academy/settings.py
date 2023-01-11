@@ -47,7 +47,6 @@ MY_APPS = [
     'supplies',
     'orders',
     'providers',
-    'workshops',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + MY_APPS
@@ -67,7 +66,7 @@ ROOT_URLCONF = 'academy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

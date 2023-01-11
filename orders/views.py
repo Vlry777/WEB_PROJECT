@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from orders.models import Order
 
+
 def list_orders(request):
     orders = Order.objects.all()
     context = {

@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from supplies.models import Supplies
-
 from supplies.forms import SuplieForm
 
-def create_product(request):
+def create_supplie(request):
     if request.method == 'GET':
         context = {
             'form': SuplieForm()
@@ -32,7 +30,7 @@ def create_product(request):
             }
             return render(request, 'supplies/create_supplie.html', context=context)
 
-def list_products(request):
+def list_supplies(request):
     if 'search' in request.GET:
         search = request.GET['search']
         supplies = Supplies.objects.filter(name__icontains=search)
