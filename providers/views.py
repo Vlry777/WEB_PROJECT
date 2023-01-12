@@ -14,4 +14,16 @@ class ProvidersListView(ListView):
     model = Provider
     template_name = 'providers/providers-list.html'
     queryset = Provider.objects.filter(is_active = True)
+
+    def providers_list(request):
+        if 'search' in request == 'GET':
+            search = request.GET['search']
+            providers = Provider.objects.filter(name__contains= search)
+        else:
+            providers = Provider.objects.all()
+        context = {
+            'providers': providers,
+        }
+        return render(request,'providers/providers_list.html', context=context)
+    
   

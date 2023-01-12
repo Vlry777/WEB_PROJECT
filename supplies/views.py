@@ -41,14 +41,4 @@ def list_supplies(request):
     }
     return render(request, 'supplies/list_supplies.html', context=context)
 
-# def create_category(request, name):
-#     Category.objects.create(name=name)
-#     return HttpResponse('Categoria creada')
-
-# def list_categories(request):
-#     all_categories = Category.objects.all()
-#     context = {
-#         'categories':all_categories
-#     }
-#     return render(request, 'categories/list_categories.html', context=context)
 
