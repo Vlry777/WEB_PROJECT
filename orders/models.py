@@ -6,7 +6,7 @@ class Order(models.Model):
         ('Card', 'Card'),
     )
 
-    client = models.CharField(max_length=100)
+    client = models.CharField(max_length=50)
     product = models.CharField(max_length=100)
     creation_time = models.DateTimeField(auto_now_add=True)
     payment_method = models.CharField(choices=CHOICES, max_length=4)

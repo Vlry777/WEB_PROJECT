@@ -1,7 +1,38 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from orders.models import Order
+from orders.forms import OrdersForm
+
+
+
+def create_order(request):
+    if request.method == 'GET':
+        context = {
+            'form': OrdersForm()
+        }
+
+        return render(request, 'orders/create_order.html', context=context)
+
+    elif request.method == 'POST':
+        form = OrdersForm(request.POST)
+        if form.is_valid():
+            Order.objects.create(
+                client=form.cleaned_data['client'],
+                product=form.cleaned_data['product'],
+                creation_time=form.cleaned_data['creation_time'],
+                payment_method=form.cleaned_data['payment_method'],
+            )
+            context = {
+                'message': 'Tu orden ha sido realizada!'
+            }
+            return render(request, 'orders/create_order.html', context=context)
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': OrdersForm()
+            }
+            return render(request, 'orders/create_order.html', context=context)
+
 
 
 def list_orders(request):
@@ -19,8 +50,6 @@ def list_orders(request):
     }
     return render(request, 'orders/list_orders.html', context=context)
 
-def create_order(request):
-    Order.objects.create(client='Franco', buy='Compra $10000', creation_time= 10/1/2023,payment_method='Cash')
-    return HttpResponse('Order created')
+
 
 

@@ -1,18 +1,18 @@
 from django.shortcuts import render
 
 from supplies.models import Supplies
-from supplies.forms import SuplieForm
+from supplies.forms import SupplieForm
 
 def create_supplie(request):
     if request.method == 'GET':
         context = {
-            'form': SuplieForm()
+            'form': SupplieForm()
         }
 
         return render(request, 'supplies/create_supplie.html', context=context)
 
     elif request.method == 'POST':
-        form = SuplieForm(request.POST)
+        form = SupplieForm(request.POST)
         if form.is_valid():
             Supplies.objects.create(
                 name=form.cleaned_data['name'],
@@ -26,7 +26,7 @@ def create_supplie(request):
         else:
             context = {
                 'form_errors': form.errors,
-                'form': SuplieForm()
+                'form': SupplieForm()
             }
             return render(request, 'supplies/create_supplie.html', context=context)
 
