@@ -7,26 +7,30 @@
 {% block content %}
 
     <h1> Listado de Insumos</h1>
-    <h2>Crear nuevo insumo </h2> <a href="/supplies/create-supplie/" class="btn btn-primary">Crear</a>
-    {% for supplie in supplies %}
-
-
-        <div class="card" style="width: 18rem;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQx-1KtiMOygd6fv_iDhGVZgpYo07vpG0yHw&usqp=CAU" class="card-img-top">
-            <div class="card-body">
-            <h5 class="card-title">{{supplie.name}}</h5>
-            <p class="card-text">Precio: ${{supplie.price}}</p>
-            {% if supplie.stock == True %}
-                <p>Actualmente hay stock</p>
-            {% else %}
-                <p>Actualmente, nos quedamos sin stock</p>
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <h2>Crear nuevo insumo </h2> <a href="/supplies/create-supplie/" class="btn btn-primary">Crear</a>
             {% endif %}
-            <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
+        {% endif %}    
+                {% for supplie in supplies %}
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQx-1KtiMOygd6fv_iDhGVZgpYo07vpG0yHw&usqp=CAU" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">{{supplie.name}}</h5>
+                    <p class="card-text">Precio: ${{supplie.price}}</p>
+                    {% if supplie.stock == True %}
+                        <p>Actualmente hay stock</p>
+                    {% else %}
+                        <p>Actualmente, nos quedamos sin stock</p>
+                    {% endif %}
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
 
 
 
-    {% endfor %}
+                 {% endfor %}
 
 {% endblock %}
