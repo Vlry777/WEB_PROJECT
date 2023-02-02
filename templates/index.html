@@ -8,6 +8,9 @@
 {% block content %}
     <h2> Masterlash Beauty</h2>
 
+    {{ request.user }}
+    {{request.user.profile.phone}}
+
     {% if message %}
 
        <h2>{{message}}</h2>
