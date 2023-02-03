@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.urls import path, include
 from academy.views import index
 
-from django.conf import settings
+from academy.settings import MEDIA_ROOT, MEDIA_URL
+
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', index, name='index'),
@@ -15,4 +17,4 @@ urlpatterns = [
     path('users/',include('users.urls')),
 
 
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+] + static(MEDIA_URL, document_root= MEDIA_ROOT)
