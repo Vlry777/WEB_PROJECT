@@ -3,9 +3,7 @@ from django.urls import path, include
 from academy.views import index
 
 from academy.settings import MEDIA_ROOT, MEDIA_URL
-
 from django.conf.urls.static import static
-
 
 urlpatterns = [
     path('', index, name='index'),
