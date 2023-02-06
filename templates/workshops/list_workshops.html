@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Cursos
+{% endblock %}
+
+{% block content %}
+
+    <h1> Listado de Cursos</h1>
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <h2>Crear nuevo curso </h2> <a href="/workshops/create-workshop/" class="btn btn-primary">Crear</a>
+            {% endif %}
+        {% endif %}    
+                {% for workshop in workshops %}
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQx-1KtiMOygd6fv_iDhGVZgpYo07vpG0yHw&usqp=CAU" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">{{workshop.name}}</h5>
+                    <p class="card-text">Fecha del curso: {{workshop.date}}</p>
+                    <p class="card-text">Precio: ${{workshop.price}}</p>
+                    <p class="card-text">Contenido del curso: {{workshop.description}}</p>
+                    {% if workshop.current == True %}
+                        <p>Todavia podes participar del curso</p>
+                    {% else %}
+                        <p>El curso expiro, proximamente habra nuevas fechas</p>
+                    {% endif %}
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+
+
+
+                 {% endfor %}
+
+{% endblock %}

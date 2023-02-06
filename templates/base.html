@@ -19,11 +19,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 150px;">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="#"> Conocenos <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                    <a class="nav-link" href='about_us/about_us.html'> Conocenos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Workshops</a>
+                    <a class="nav-link" href="/workshops/list-workshops/">Workshops</a>
                     </li>>
                     <li class="nav-item">
                         <a class="nav-link" href="/supplies/list-supplies/">Insumos</a>
@@ -35,10 +35,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/providers/providers-list/">Proveedores</a></li>
                             <li><a class="dropdown-item" href="/orders/list-orders/">Ordenes</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    <li class="nav-item" style="margin-right: 400px;">
+                    <li class="nav-item" style="margin-right: 420px;">
                     {% if request.user.is_authenticated %}
                       <li class="nav-item">
                         <a class="nav-link" href="/users/logout/">Logout</a>
@@ -47,7 +45,7 @@
                         <a class="nav-link" href="/users/update/">{{request.user.username}}</a>
                     </li>
                         {% if request.user.profile.profile_picture.url != '' %}
-                            <img src="{{ request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px">
+                            <img src="{{ request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px" >
                         {% endif %}
                     {% else %}
                     <li class="nav-item">
@@ -90,11 +88,11 @@
     <footer class="bg-muted text-center text-white" style="margin-top:600px;">
         <div class="container p-3 pb-0">
             <section class="mb-3">
-            <a href="https://www.instagram.com/"><img src="/media/icon/instagram.ico" width="40" height="40" role="button"></a>
-            <a href="https://www.twitter.com/"><img src="/media/icon/twitter.ico" width="40" height="40" role="button"></a>
-            <a href="https://www.whatsapp.com/"><img src="/media/icon/whatsapp.ico" width="40" height="40" role="button"></a>
-            <a href="https://www.github.com/accccastle/"><img src="/media/icon/github1.ico" width="40" height="40" role="button"></a>
-            <a href="https://www.linkedin.com/"><img src="/media/icon/linkedin.ico" width="40" height="40" role="button"></a>
+            <a href="https://www.instagram.com/"><img src="/media/icons/instagram.ico" width="35" height="35" role="button"></a>
+            <a href="https://www.twitter.com/"><img src="/media/icons/twitter.ico" width="35" height="35" role="button"></a>
+            <a href="https://www.whatsapp.com/"><img src="/media/icons/whatsapp.ico" width="35" height="35" role="button"></a>
+            <a href="https://www.github.com/accccastle/"><img src="/media/icons/github1.png.ico" width="35" height="35" role="button"></a>
+            <a href="https://www.linkedin.com/"><img src="/media/icons/linkedin.ico" width="35" height="35" role="button"></a>
             </section>
         </div>
         <div class="text-center p-3" style="background-color: rgba(83, 77, 77, 0.2);">
@@ -102,9 +100,6 @@
             <a class="text-light" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
     </footer>
-
-
-
 
 
 
