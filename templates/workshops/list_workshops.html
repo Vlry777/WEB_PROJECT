@@ -28,6 +28,10 @@
                         <p>El curso expiro, proximamente habra nuevas fechas</p>
                     {% endif %}
                     <a href="#" class="btn btn-primary">Comprar</a>
+                    <a href="/workshops/update-workshops/{{workshop.id}}/" class="btn btn-primary">Actualizar</a>
+                    {% if request.user.is_superuser %}
+                    <a href="/workshops/delete-workshops/{{workshop.id}}/" class="btn btn-danger">Borrar</a>
+                    {% endif %}
                     </div>
                 </div>
 
