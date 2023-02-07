@@ -11,7 +11,7 @@
 
     {% if form %}
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
 
             {% csrf_token %}
 
@@ -26,13 +26,13 @@
 
 
     {% if form_errors %}
-        <h2 style="color: red;" >Errores:</h2>
+        <h2 style="color: rgb(232, 29, 29);" >Errores:</h2>
         {{form_errors}}
     {% endif %}
 
 
     {% if message %}
-        <h2 style="color: green;" >{{message}}</h2>
+        <h2 style="color: rgb(53, 182, 53);" >{{message}}</h2>
     {% endif %}
 
 

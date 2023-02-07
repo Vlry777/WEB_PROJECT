@@ -12,25 +12,26 @@ def create_workshop(request):
         return render(request,'workshops/create_workshop.html',context=context)
     
     elif request.method == 'POST':
-        form = WorkshopForm(request.POST)
+        form = WorkshopForm(request.POST,request.FILES)
         if form.is_valid():
             Workshops.objects.create(
                 name= form.cleaned_data['name'],
-                date= form.changed_data['date'],
+                date= form.cleaned_data['date'],
                 current= form.cleaned_data['current'],
                 price= form.cleaned_data['price'],
-                description= form.cleaned_data['description']
+                description= form.cleaned_data['description'],
+                image= form.cleaned_data['image'],
             )
             context={
                 'message': 'Un nuevo Curso se ha creado!'
             }
-            return render(request,'workshop/create_workshop.html', context=context)
+            return render(request,'workshops/create_workshop.html', context=context)
         else:
             context = {
                 'form_errors': form.errors,
                 'form': WorkshopForm()
             }
-            return render(request, 'workshop/create_workshop.html', context=context)
+            return render(request, 'workshops/create_workshop.html', context=context)
 
 def list_workshops(request):
     if 'search' in request.GET:

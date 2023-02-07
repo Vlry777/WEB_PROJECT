@@ -16,7 +16,9 @@
 
 
                 <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQx-1KtiMOygd6fv_iDhGVZgpYo07vpG0yHw&usqp=CAU" class="card-img-top">
+                    {% if workshops.workshop_image %}
+                    <img src="{{ workshops.workshop_image.url }}" class="card-img-top">
+                    {% endif %}
                     <div class="card-body">
                     <h5 class="card-title">{{workshop.name}}</h5>
                     <p class="card-text">Fecha del curso: {{workshop.date}}</p>
@@ -36,3 +38,5 @@
                  {% endfor %}
 
 {% endblock %}
+
+

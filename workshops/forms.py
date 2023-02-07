@@ -1,8 +1,15 @@
 from django import forms
+from workshops.models import Workshops
 
-class WorkshopForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    date = forms.DateTimeField()
-    current = forms.BooleanField(required= False)
-    price = forms.FloatField()
-    description = forms.CharField()
+class WorkshopForm(forms.ModelForm):
+    class Meta:
+        model= Workshops
+        fields= ['name','date','current','price','description','image']
+        label={
+            'name':'Nombre',
+            'date':'Fecha',
+            'current':'Vigente',
+            'price':'Precio',
+            'description':'Descripcion',
+            'image': 'Imagen',
+        }
