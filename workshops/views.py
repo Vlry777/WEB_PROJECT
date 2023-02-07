@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 from workshops.models import Workshops
 from workshops.forms import WorkshopForm
 
+@login_required
 def create_workshop(request):
     if request.method == 'GET':
         context={
@@ -32,6 +33,8 @@ def create_workshop(request):
                 'form': WorkshopForm()
             }
             return render(request, 'workshops/create_workshop.html', context=context)
+
+
 
 def list_workshops(request):
     if 'search' in request.GET:

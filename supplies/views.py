@@ -12,12 +12,13 @@ def create_supplie(request):
         return render(request, 'supplies/create_supplie.html', context=context)
 
     elif request.method == 'POST':
-        form = SupplieForm(request.POST)
+        form = SupplieForm(request.POST,request.FILES)
         if form.is_valid():
             Supplies.objects.create(
                 name=form.cleaned_data['name'],
                 price=form.cleaned_data['price'],
                 stock=form.cleaned_data['stock'],
+                supplie_image= form.cleaned_data['supplie_image'],
             )
             context = {
                 'message': 'Se ha creado un insumo  exitosamente'
