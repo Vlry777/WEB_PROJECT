@@ -20,7 +20,7 @@ def create_workshop(request):
                 current= form.cleaned_data['current'],
                 price= form.cleaned_data['price'],
                 description= form.cleaned_data['description'],
-                image= form.cleaned_data['image'],
+                workshop_image= form.cleaned_data['workshop_image'],
             )
             context={
                 'message': 'Un nuevo Curso se ha creado!'

@@ -16,9 +16,7 @@
 
 
                 <div class="card" style="width: 18rem;">
-                    {% if workshops.workshop_image %}
-                    <img src="{{ }}" class="card-img-top">
-                    {% endif %}
+                    <img src= {{workshop.workshop_image.url}} class="card-img-top">
                     <div class="card-body">
                     <h5 class="card-title">{{workshop.name}}</h5>
                     <p class="card-text">Fecha del curso: {{workshop.date}}</p>
