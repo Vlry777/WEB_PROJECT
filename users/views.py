@@ -47,7 +47,7 @@ def register(request):
     elif request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save() #al hacer el save, se crea el usuario
+            user = form.save() 
             UserProfile.objects.create(user=user)
             return redirect('login')
         
