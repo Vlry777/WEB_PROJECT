@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 150px;">
                     <li class="nav-item">
-                    <a class="nav-link" href='about_us/about_us.html'> Conocenos</a>
+                    <a class="nav-link" href='/about/'> Conocenos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/workshops/list-workshops/">Workshops</a>
+                    <a class="nav-link" href="/workshops/list-workshops/">Cursos</a>
                     </li>>
                     <li class="nav-item">
                         <a class="nav-link" href="/supplies/list-supplies/">Insumos</a>
@@ -38,14 +38,19 @@
                         </ul>
                     <li class="nav-item" style="margin-right: 420px;">
                     {% if request.user.is_authenticated %}
-                      <li class="nav-item">
-                        <a class="nav-link" href="/users/logout/">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/update/">{{request.user.username}}</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/logout/">Logout</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/users/update/" role="button" data-toggle="dropdown" aria-expanded="false">
+                                {{request.user.username}}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/"> Actualizar Usuario</a></li>
+                                <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/profile/">Actualizar Perfil</a></li>
+                            </ul>
                         {% if request.user.profile.profile_picture.url != '' %}
-                            <img src="{{ request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px" >
+                            <img src="{{ request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px" style="margin-right: 20px;">
                         {% endif %}
                     {% else %}
                     <li class="nav-item">

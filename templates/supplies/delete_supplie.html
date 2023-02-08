@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}!!! Eliminar Insumo!!!{% endblock %}
+{% block content %}
+
+<div class="container px-4 px-lg-5  ">
+   <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">Estas por eliminar un Insumo!</h4>
+      <p>Estas por eliminar un insumo de la lista.. Estas seguro?</p>
+      <hr>
+      <p class="mb-0">
+         <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Eliminar">
+      </form>
+      </p>
+    </div>
+
+</div>
+{% endblock %}

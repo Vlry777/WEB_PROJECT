@@ -5,7 +5,7 @@ from workshops.forms import WorkshopForm
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import DeleteView
 
 
 @login_required
