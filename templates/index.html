@@ -6,15 +6,117 @@
 
  
 {% block content %}
-    <h2> Masterlash Beauty</h2>
 
-    {{ request.user }}
-    
+<style>        
 
-    {% if message %}
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-       <h2>{{message}}</h2>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Playfair Display', serif;
+        display: grid;
+        background-color: #491bd4;
+        background-image: linear-gradient(43deg, #a33dc2 0%, #cd96f2 46%, #df74dc 100%);
 
-    {% endif %}
+        align-content: center;
+        min-height: 100vh;
+    }
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 15vh;
+        width: 30vw;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 12px
+    }
+    .image{
+        background-color: #12192c;
+        display: flex;
+        border-radius: 12px 0 0 12px;
+    }
+    .image img{
+        height:50vh;
+        margin:50px auto
+    }
+    .content{
+        background-color: #12192c;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0  12px 12px 0;
+        color: #fff;
+    }
+    .content h2{
+        text-transform: uppercase;
+        font-size: 36px;
+        letter-spacing: 6px;
+        opacity: 0.9;
+    }
+    .content span{
+        height: 0.5px;
+        width: 80px;
+        background: rgb(51, 15, 60);
+        margin: 30px 0;
+    }
+    .content p{
+        padding-bottom: 15px;
+        font-weight: 300;
+        opacity: 0.7;
+        width: 60%;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 1.7;
+        color:#ffffff
+    }
+    .links{
+        margin: 15px 0;
+    }
+    .links li{
+        border: 2px solid #6a82f8;
+        list-style: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        width: 160px;
+        text-align: center;
+    }
+    .links li a{
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+    }
+    .links li:hover{
+        border-color: #f666ec;
+    }
+
+    .vertical-line{
+        height: 30px;
+        width: 3px;
+        background: #e18cdc;
+        margin: 0 auto;
+    }
+    .icons{
+        display: flex;
+        padding: 15px 0;
+    }
+    .icons li{
+        display: block;
+        padding: 5px;
+        margin: 5px;
+    }
+    .icons li i{
+        font-size: 26px;
+        opacity: 0.8;
+    }
+    .icons li i:hover{
+        color: #C850C0;
+        cursor: pointer;
+    }
+</style>
 
 {% endblock %}
