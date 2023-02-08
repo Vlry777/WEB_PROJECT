@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h1> Listado de Insumos</h1>
+    <h2> Listado de Insumos</h2>
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
                 <h2>Crear nuevo insumo </h2> <a href="/supplies/create-supplie/" class="btn btn-primary">Crear</a>

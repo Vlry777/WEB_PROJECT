@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
             <a class="navbar-brand" href="/">Inicio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
                             <li><a class="dropdown-item" href="/providers/providers-list/">Proveedores</a></li>
                             <li><a class="dropdown-item" href="/orders/list-orders/">Ordenes</a></li>
                         </ul>
-                    <li class="nav-item" style="margin-right: 420px;">
+                    <li class="nav-item" style="margin-right: 350px;">
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="/users/logout/">Logout</a>
@@ -49,14 +49,21 @@
                                 <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/"> Actualizar Usuario</a></li>
                                 <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/profile/">Actualizar Perfil</a></li>
                             </ul>
-                        {% if request.user.profile.profile_picture.url != '' %}
+                        </li>
+                       {% if request.user.profile.profile_picture.url != '' %}
                             <img src="{{ request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px" style="margin-right: 20px;">
+                            <style> 
+                            *{
+                                border-radius: 16px
+                            }
+                            </style>
                         {% endif %}
+
                     {% else %}
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-right: 10px;">
                         <a class="nav-link" href="/users/login/">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"style="margin-right: 20px;">
                         <a class="nav-link" href="/users/singup/">Singup</a>
                     </li>
                     {% endif %}
@@ -71,15 +78,123 @@
     {% block content %}
 
     {% endblock %}
+    
+<style>        
 
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-    <style>
-        body{
-            background-color: whitesmoke;
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Playfair Display', serif;
+        display: grid;
+        background-color: #491bd4;
+        background-image: linear-gradient(43deg, #b34bc5 0%, #debcf4 46%, #d51df5 100%);
+
+        align-content: center;
+        min-height: 100vh;
+    }
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 10vh;
+        width: 75vw;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 12px
+    }
+    .image{
+        background-color: #12192c;
+        display: flex;
+        border-radius: 12px 0 0 12px;
+    }
+    .image img{
+        height:50vh;
+        margin:50px auto
+    }
+    .content{
+        background-color: #12192c;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0  12px 12px 0;
+        color: #fff;
+    }
+    .content h2{
+        text-transform: uppercase;
+        font-size: 36px;
+        letter-spacing: 6px;
+        opacity: 0.9;
+    }
+    .content span{
+        height: 0.5px;
+        width: 80px;
+        background: rgb(51, 15, 60);
+        margin: 30px 0;
+    }
+    .content p{
+        padding-bottom: 15px;
+        font-weight: 300;
+        opacity: 0.7;
+        width: 60%;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 1.7;
+        color:#ffffff
+    }
+    .links{
+        margin: 15px 0;
+    }
+    .links li{
+        border: 2px solid #6a82f8;
+        list-style: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        width: 160px;
+        text-align: center;
+    }
+    .links li a{
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+    }
+    .links li:hover{
+        border-color: #f666ec;
+    }
+
+    .vertical-line{
+        height: 30px;
+        width: 3px;
+        background: #e18cdc;
+        margin: 0 auto;
+    }
+    .icons{
+        display: flex;
+        padding: 15px 0;
+    }
+    .icons li{
+        display: block;
+        padding: 5px;
+        margin: 5px;
+    }
+    .icons li i{
+        font-size: 26px;
+        opacity: 0.8;
+    }
+    .icons li i:hover{
+        color: #C850C0;
+        cursor: pointer;
+    }
+    body{
+            background-color: rgb(90, 33, 98);
         }
 
         footer{
-            background-color: rgb(170, 98, 237);
+            background-color: rgb(252, 218, 252);
         }
 
         .avatar{
@@ -87,8 +202,9 @@
             width: 30px;
             height: 30px;
         }
+</style>
 
-    </style>
+
 
     <footer class="bg-muted text-center text-white" style="margin-top:600px;">
         <div class="container p-3 pb-0">
