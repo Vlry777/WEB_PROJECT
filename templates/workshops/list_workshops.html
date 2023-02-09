@@ -9,7 +9,7 @@
     <h1> Listado de Cursos</h1>
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <h2>Crear nuevo curso </h2> <a href="/workshops/create-workshop/" class="btn btn-primary">Crear</a>
+                <h2>Crear nuevo curso </h2> <a href="/workshops/create-workshop/" class="btn btn-dark">Crear</a>
             {% endif %}
         {% endif %}    
                 {% for workshop in workshops %}

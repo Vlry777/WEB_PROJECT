@@ -9,7 +9,7 @@
     <h2> Listado de Insumos</h2>
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <h2>Crear nuevo insumo </h2> <a href="/supplies/create-supplie/" class="btn btn-primary">Crear</a>
+                <h2>Crear nuevo insumo </h2> <a href="/supplies/create-supplie/" class="btn btn-dark">Crear</a>
             {% endif %}
         {% endif %}    
                 {% for supplie in supplies %}
