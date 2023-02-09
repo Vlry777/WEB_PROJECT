@@ -13,9 +13,9 @@
             {% endif %}
         {% endif %}    
                 {% for workshop in workshops %}
+                
 
-
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;" >
                     <img src= {{workshop.workshop_image.url}} class="card-img-top">
                     <div class="card-body">
                     <h5 class="card-title">{{workshop.name}}</h5>
@@ -27,8 +27,8 @@
                     {% else %}
                         <p>El curso expiro, proximamente habra nuevas fechas</p>
                     {% endif %}
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                    <a href="/workshops/update-workshops/{{workshop.id}}/" class="btn btn-primary">Actualizar</a>
+                    <a href="#" class="btn btn-success">Comprar</a>
+                    <a href="/workshops/update-workshops/{{workshop.id}}/" class="btn btn-info">Actualizar</a>
                     {% if request.user.is_superuser %}
                     <a href="/workshops/delete-workshops/{{workshop.id}}/" class="btn btn-danger">Borrar</a>
                     {% endif %}
@@ -36,9 +36,7 @@
                 </div>
 
 
-
                  {% endfor %}
 
 {% endblock %}
-
 
