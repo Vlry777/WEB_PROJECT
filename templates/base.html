@@ -34,7 +34,6 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/providers/providers-list/">Proveedores</a></li>
-                            <li><a class="dropdown-item" href="/orders/list-orders/">Ordenes</a></li>
                         </ul>
                     <li class="nav-item" style="margin-right: 350px;">
                     {% if request.user.is_authenticated %}
@@ -48,6 +47,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/"> Actualizar Usuario</a></li>
                                 <li><a class="dropdown-item" href="http://127.0.0.1:8000/users/update/profile/">Actualizar Perfil</a></li>
+                                <li><a class="dropdown-item" href="/orders/list-orders/">Ordenes</a></li>
                             </ul>
                         </li>
                        {% if request.user.profile.profile_picture.url != '' %}
@@ -67,6 +67,9 @@
                         <a class="nav-link" href="/users/singup/">Singup</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link" href="/shoppingcart/shop/">Mi carrito</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/supplies/list-supplies/" method="GET">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
