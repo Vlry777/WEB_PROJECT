@@ -25,7 +25,7 @@
                     {% else %}
                         <p>Actualmente, nos quedamos sin stock</p>
                     {% endif %}
-                    <a href="#" class="btn btn-success">Comprar</a>
+                    <a href="#" class="btn btn-success">Agregar al carrito</a>
                     <a href="/supplies/update-supplies/{{supplie.id}}/" class="btn btn-info">Actualizar</a>
                     {% if request.user.is_superuser %}
                     <a href="/supplies/delete-supplies/{{supplie.id}}/" class="btn btn-danger">Borrar</a>
